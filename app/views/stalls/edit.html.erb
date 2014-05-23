@@ -1,0 +1,11 @@
+<html>
+<head><title>Edit stall</title></head>
+<h1>Edit stall</h1>
+<body>
+<%= simple_form_for ([@cafeterium, @stall]) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.button :submit %>
+<% end %>
+</body>
+</html>

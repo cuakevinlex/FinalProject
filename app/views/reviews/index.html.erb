@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>
+Reviews
+</title>
+</head>
+<body>
+<h1><%= @stall.name %>'s reviews</h1>
+<table class = "table">
+	<thead>
+		<tr>
+			<td>Users</td>
+			<td>Ratings</td>
+			<td>Comments</td>
+			<td>Edit</td>
+			<td>Delete</td>
+		</tr>
+	</thead>
+	<tbody>
+		<% @reviews.each do |review| %>
+		<tr>
+			<td><%= link_to review.user, cafeterium_stall_review_path(@cafeterium, @stall, review) %></td>
+			<td><%= review.rating %></td>
+			<td><%= review.comment %></td>
+			<td><%= link_to "Edit", edit_cafeterium_stall_review_path(@cafeterium, @stall, review) %></td>
+			<td><%=link_to "Delete", cafeterium_stall_review_path(@cafeterium, @stall, review), :method => :delete, :class => "delete", :confirm => "Are you sure ?"%></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+	<%= link_to 'Create New Review', new_cafeterium_stall_review_path %>
+</body>
+</html>

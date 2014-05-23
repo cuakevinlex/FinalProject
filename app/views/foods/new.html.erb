@@ -1,0 +1,12 @@
+<html>
+<head><title></title></head>
+<h1>Add food</h1>
+<body>
+<%= simple_form_for ([@cafeterium, @stall, @food]) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :price %>
+  <%= f.input :photo %>
+  <%= f.button :submit %>
+<% end %>
+</body>
+</html>

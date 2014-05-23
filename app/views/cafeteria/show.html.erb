@@ -1,0 +1,7 @@
+<html>
+<h1><%= @cafeterium.name %></h1>
+<p><%= debug @cafeterium %> <p>
+<%= link_to 'Show all cafeteria', cafeteria_path %>
+<br />
+<%= link_to 'Show all stalls of ' + @cafeterium.name , cafeterium_stalls_path(@cafeterium) %>
+</html>

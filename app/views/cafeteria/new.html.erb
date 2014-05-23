@@ -1,0 +1,11 @@
+<html>
+<head><title>Create Cafeteria</title></head>
+<h1>New Cafeteria</h1>
+<body>
+<%= simple_form_for Cafeterium.new do |f| %>
+  <%= f.input :name %>
+  <%= f.input :capacity %>
+  <%= f.button :submit %>
+<% end %>
+</body>
+</html>

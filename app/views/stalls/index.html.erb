@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>
+Stalls
+</title>
+</head>
+<body>
+<h1><%= @cafeterium.name %>'s Stalls</h1>
+<table class = "table">
+	<thead>
+		<tr>
+			<td>Name</td>
+			<td>Description</td>
+			<td>Edit</td>
+			<td>Delete</td>
+		</tr>
+	</thead>
+	<tbody>
+		<% @stalls.each do |stall| %>
+		<tr>
+			<td><%= link_to stall.name, cafeterium_stall_path(@cafeterium, stall) %></td>
+			<td><%= stall.description %></td>
+			<td><%= link_to "Edit", edit_cafeterium_stall_path(@cafeterium, stall) %></td>
+			<td><%=link_to "Delete", cafeterium_stall_path(@cafeterium, stall), :method => :delete, :class => "delete", :confirm => "Are you sure ?"%></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+	<%= link_to 'Create New stall', new_cafeterium_stall_path %>
+</body>
+</html>

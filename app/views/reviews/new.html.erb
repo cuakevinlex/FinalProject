@@ -1,0 +1,12 @@
+<html>
+<head><title>Create Review</title></head>
+<h1>New Review</h1>
+<body>
+<%= simple_form_for ([@cafeterium, @stall, @review]) do |f| %>
+  <%= f.input :user %>
+  <%= f.input :rating %>
+  <%= f.input :comment %>
+  <%= f.button :submit %>
+<% end %>
+</body>
+</html>

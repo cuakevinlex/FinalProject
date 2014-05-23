@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>
+Cafeterias
+</title>
+</head>
+<body>
+<h1>Cafeteria</h1>
+<table class = "table">
+	<thead>
+		<tr>
+			<td>Name</td>
+			<td>Capacity</td>
+			<td>Edit</td>
+			<td>Delete</td>
+		</tr>
+	</thead>
+	<tbody>
+		<% @cafeteria.each do |cafeterium| %>
+		<tr>
+			<td><%= link_to cafeterium.name, cafeterium %></td>
+			<td><%= cafeterium.capacity %></td>
+			<td><%= link_to "Edit", edit_cafeterium_path(cafeterium) %></td>
+			<td><%=link_to "Delete", cafeterium_path(cafeterium), :method => :delete, :class => "delete", :confirm => "Are you sure ?"%></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+	<%= link_to 'Create New Cafeterium', new_cafeterium_path %>
+</body>
+</html>
