@@ -4,8 +4,11 @@ def create
 	@stall = @cafeterium.stalls.new
 	@stall.name = params[:stall][:name]
 	@stall.description = params[:stall][:description]
-	@stall.save!
+	if @stall.save
 	redirect_to :action => :index
+	else
+	redirect_to :action => :new
+	end
   end
   def new
   	@cafeteria = Cafeterium.all
@@ -38,8 +41,11 @@ def create
 	@stall = Stall.find(params[:id])
 	@stall.name = params[:stall][:name]
 	@stall.description = params[:stall][:description]
-	@stall.save!
+	if @stall.save
 	redirect_to :action => :index
+	else
+	redirect_to :action => :edit
+	end
 	end
 
   def show

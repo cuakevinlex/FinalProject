@@ -7,8 +7,11 @@ class FoodsController < ApplicationController
 	@food.name = params[:food][:name]
 	@food.price = params[:food][:price]
 	@food.photo = params[:food][:photo]
-	@food.save!
+	if @food.save
 	redirect_to cafeterium_stall_path(@cafeterium, @stall)
+	else
+	redirect_to :action => :new
+	end
   end
   def new
   	@cafeteria = Cafeterium.all
@@ -49,8 +52,11 @@ class FoodsController < ApplicationController
 	@food.name = params[:food][:name]
 	@food.price = params[:food][:price]
 	@food.photo = params[:food][:photo]
-	@food.save!
+	if	@food.save
 	redirect_to cafeterium_stall_path(@cafeterium, @stall)
+	else
+	redirect_to :action => :edit
+	end
 	end
 
   def show

@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
 def create
+	@cafeteria = Cafeterium.all
 	@cafeterium = Cafeterium.find(params[:cafeterium_id])
 	@stall = @cafeterium.stalls.find(params[:stall_id])
 	@review = @stall.reviews.new
@@ -7,8 +8,11 @@ def create
 	@review.rating = params[:review][:rating]
 	@review.comment = params[:review][:comment]
 	@review.published_at = DateTime.now
-	@review.save!
+	if @review.save
 	redirect_to cafeterium_stall_path(@cafeterium, @stall)
+	else
+	redirect_to :action => :new
+	end
   end
   def new
 	@cafeteria = Cafeterium.all
@@ -43,16 +47,19 @@ def create
   end
 
 	def update
+	@cafeteria = Cafeterium.all
 	@cafeterium = Cafeterium.find(params[:cafeterium_id])
 	@stall = @cafeterium.stalls.find(params[:stall_id])
 	@review = Review.find(params[:id])
 	@review.user = params[:review][:user]
 	@review.rating = params[:review][:rating]
 	@review.comment = params[:review][:comment]
-	@review.save!
+	if @review.save
 	redirect_to cafeterium_stall_path(@cafeterium, @stall)
+	else
+	redirect_to :action => :edit
 	end
-
+	end
   def show
   	@review = Review.find(params[:id])
   end

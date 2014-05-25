@@ -3,8 +3,11 @@ def create
 	@cafeterium = Cafeterium.new
 	@cafeterium.name = params[:cafeterium][:name]
 	@cafeterium.capacity = params[:cafeterium][:capacity]
-	@cafeterium.save!
+	if @cafeterium.save
 	redirect_to :action => :index
+	else
+	redirect_to :action => :new
+	end
   end
   def new
   	@cafeteria = Cafeterium.all
@@ -33,8 +36,11 @@ def create
 	@cafeterium = Cafeterium.find(params[:id])
 	@cafeterium.name = params[:cafeterium][:name]
 	@cafeterium.capacity = params[:cafeterium][:capacity]
-	@cafeterium.save!
+	if @cafeterium.save
 	redirect_to :action => :index
+	else
+	redirect_to :action => :edit
+	end
 	end
 
   def show
