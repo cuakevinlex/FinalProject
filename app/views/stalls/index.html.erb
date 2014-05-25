@@ -1,12 +1,9 @@
-<html>
-<head>
-<title>
-Stalls
-</title>
-</head>
-<body>
+<div class = "review">
+<div class = "head">
 <h1><%= @cafeterium.name %>'s Stalls</h1>
-<table class = "table">
+</div>
+<div class = "table">
+<table class = "flat-table flat-table-1">
 	<thead>
 		<tr>
 			<td>Name</td>
@@ -19,13 +16,15 @@ Stalls
 		<% @stalls.each do |stall| %>
 		<tr>
 			<td><%= link_to stall.name, cafeterium_stall_path(@cafeterium, stall) %></td>
-			<td><%= stall.description %></td>
+			<td id = "tdlittle"><%= stall.description %></td>
 			<td><%= link_to "Edit", edit_cafeterium_stall_path(@cafeterium, stall) %></td>
 			<td><%=link_to "Delete", cafeterium_stall_path(@cafeterium, stall), :method => :delete, :class => "delete", :confirm => "Are you sure ?"%></td>
 		</tr>
 		<% end %>
 	</tbody>
 </table>
+</div>
 	<%= link_to 'Create New stall', new_cafeterium_stall_path %>
-</body>
-</html>
+<br /><br /><br />
+</div>
+

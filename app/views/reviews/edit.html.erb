@@ -1,12 +1,23 @@
-<html>
-<head><title>Edit review</title></head>
-<h1>Edit review</h1>
-<body>
-<%= simple_form_for ([@cafeterium, @stall, @review]) do |f| %>
-  <%= f.input :user %>
-  <%= f.input :rating %>
-  <%= f.input :comment %>
-  <%= f.button :submit %>
-<% end %>
-</body>
-</html>
+
+	<div class = "review">
+	<div class = "head">
+	<% if @review.user == "" %>
+	<h1>Edit review - Anonymous</h1>
+	<% else %>
+	<h1>Edit review - <%= @review.user %></h1>
+	<% end %>
+	</div>
+	<%= simple_form_for ([@cafeterium, @stall, @review]) do |f| %>
+	<h3>Name</h3>	
+<%= f.input :user,:maxlength =>30, :label => false  %>
+			<br />
+			<h3>*Rating</h3>
+			<%= f.input :rating, :collection => 1..5 ,:label => false  %>
+			<br />
+			<h3>*Comment</h3>
+			<%= f.input :comment,:style=> 'width: 20px',:label => false  %>
+			<br /><br />
+			<%= f.button :submit %>
+	<% end %>
+	</div>
+	

@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20140523080723) do
   create_table "foods", force: true do |t|
     t.string   "name"
     t.integer  "price"
-    t.string   "photo"
+    t.text     "photo"
     t.integer  "stall_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20140523080723) do
     t.string   "user"
     t.integer  "rating"
     t.text     "comment"
+    t.date     "published_at"
     t.integer  "stall_id"
     t.datetime "created_at"
     t.datetime "updated_at"

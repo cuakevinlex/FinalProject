@@ -1,1 +1,45 @@
-<h1>ROOOT</h1>
+
+<div class="body">
+	<div>
+		<div class="featured">
+		
+			<img src="/assets/Food.jpg" alt="" width=565>
+			<div>
+				<div>
+					<span><h3>Random  Stall</h3>
+					<p>
+						<%= @stall[0].name %> in <%= @stall[0].cafeterium.name %>
+					</p>
+					<p>
+						 - <%= @stall[0].description %>
+					</p>
+					<%= link_to "Give a review!", new_cafeterium_stall_review_path(@stall[0].cafeterium, @stall[0], Review.new) %>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div>
+				<div>
+					<div class="section">
+						<h2>WHERE IN ATENEO?</h2>
+						<p>
+							These are the places in Ateneo that offer food!
+						</p>
+						<ul>
+							<% @cafeteria.each do |caf| %>
+							<li>
+								<p>
+									<%= caf.name %>
+								</p>
+							</li>
+							<% end %>
+						</ul>
+					</div>
+					<div>
+					<img src="/assets/food1.jpg" alt="" width=565>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

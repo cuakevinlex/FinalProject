@@ -1,12 +1,9 @@
-<html>
-<head>
-<title>
-Reviews
-</title>
-</head>
-<body>
+<div class = "review">
+<div class = "head">
 <h1><%= @stall.name %>'s reviews</h1>
-<table class = "table">
+</div>
+<div class = "table">
+<table class = "flat-table flat-table-1">
 	<thead>
 		<tr>
 			<td>Users</td>
@@ -17,17 +14,23 @@ Reviews
 		</tr>
 	</thead>
 	<tbody>
-		<% @reviews.each do |review| %>
+		<% @review.each do |review| %>
 		<tr>
-			<td><%= link_to review.user, cafeterium_stall_review_path(@cafeterium, @stall, review) %></td>
+			<% if review.user == "" %>
+			<td>Anonymous</td>
+			<% else %>
+			<td><%= review.user %></td>
+			<% end %>
 			<td><%= review.rating %></td>
-			<td><%= review.comment %></td>
+			<td id = "tdlittle"><%= review.comment %></td>
 			<td><%= link_to "Edit", edit_cafeterium_stall_review_path(@cafeterium, @stall, review) %></td>
 			<td><%=link_to "Delete", cafeterium_stall_review_path(@cafeterium, @stall, review), :method => :delete, :class => "delete", :confirm => "Are you sure ?"%></td>
 		</tr>
 		<% end %>
 	</tbody>
 </table>
+</div>
 	<%= link_to 'Create New Review', new_cafeterium_stall_review_path %>
-</body>
-</html>
+	<br /><br /><br />
+</div>
+

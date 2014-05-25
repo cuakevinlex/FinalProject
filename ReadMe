@@ -1,0 +1,2 @@
+Creating cafeterias and creating stalls is hidden for admin use only. Editing food and deleting food is also for admin use only.
+foods#create,index,update and reviews#create,index,update is not used.

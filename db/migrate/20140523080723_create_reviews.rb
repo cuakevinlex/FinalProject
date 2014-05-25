@@ -4,6 +4,7 @@ class CreateReviews < ActiveRecord::Migration
       t.string :user
       t.integer :rating
       t.text :comment
+      t.date :published_at
 	  t.references :stall
 	  
       t.timestamps

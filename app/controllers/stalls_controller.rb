@@ -8,13 +8,17 @@ def create
 	redirect_to :action => :index
   end
   def new
+  	@cafeteria = Cafeterium.all
  	@cafeterium = Cafeterium.find(params[:cafeterium_id])
 	@stall = Stall.new
+	@latest_reviews = Review.last(3) 
   end
 
   def index
+  	@cafeteria = Cafeterium.all
   	@cafeterium = Cafeterium.find(params[:cafeterium_id])
 	@stalls = @cafeterium.stalls.all
+	@latest_reviews = Review.last(3) 
   end
 
   def destroy
@@ -24,8 +28,10 @@ def create
   end
 
   def edit
+    	@cafeteria = Cafeterium.all
     @cafeterium = Cafeterium.find(params[:cafeterium_id])
 	@stall = Stall.find(params[:id])
+	@latest_reviews = Review.last(3) 
   end
 
 	def update
@@ -37,6 +43,7 @@ def create
 	end
 
   def show
+    @cafeteria = Cafeterium.all
   	@cafeterium = Cafeterium.find(params[:cafeterium_id])
 	@stall = Stall.find(params[:id])
 	@reviews = @stall.reviews.all
@@ -49,5 +56,6 @@ def create
 		@number_of_reviews +=1
 	end
 	@average = @total.to_f/@number_of_reviews.to_f
+	@latest_reviews = Review.last(3) 
   end
 end

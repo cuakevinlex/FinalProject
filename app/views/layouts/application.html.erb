@@ -1,14 +1,107 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AteneoFoodReview</title>
+  <title>Ateneo Food Review</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="header">
+		<div>
 
+			<ul>
+				<% if @cafeterium == nil and @about == nil %>
+					<li class="selected">
+						<%= link_to "Home", root_path %>
+					</li>
+					<% @cafeteria.each do |cafeterium| %>
+						<li>
+							<%= link_to cafeterium.name, cafeterium %>
+						</li>
+					<% end %>
+					<li>
+						<%= link_to "About", about_path %>
+					</li>
+				<% elsif @about == true %>
+					<li>
+						<%= link_to "Home", root_path %>
+					</li>
+					<% @cafeteria.each do |cafeterium| %>
+						<li>
+							<%= link_to cafeterium.name, cafeterium %>
+						</li>
+					<% end %>
+					<li class="selected">
+						<%= link_to "About", about_path %>
+					</li>
+				<% else %>
+				<li>
+					<%= link_to "Home", root_path %>
+					</li>
+					<% @cafeteria.each do |cafeterium| %>
+						<% if @cafeterium.id == cafeterium.id %>
+							<li class="selected">
+								<%= link_to cafeterium.name, cafeterium %>
+							</li>
+						<% else %>
+							<li>
+								<%= link_to cafeterium.name, cafeterium %>
+							</li>
+						<% end %>
+					<% end %>
+					<li>
+						<%= link_to "About", about_path %>
+					</li>
+				<% end %>
+			</ul>
+			<div>
+				<p>
+			<span>A</span>teneo <span>F</span>ood <span>R</span>eview
+				</p>
+			</div>
+		</div>
+	</div>
 <%= yield %>
 
+<br /><br />
+
+	<div class="footer">
+		<div>
+			<div>
+				<h3>NEWSLETTER</h3>
+				<p>
+					This feature will be Available soon!
+				</p>
+				<form action="https://www.facebook.com/oliver.tan.37">
+					<input type="text" value="Email Address" onblur="this.value=!this.value?'Email Address':this.value;" onfocus="this.select()" onclick="this.value='';">
+					<input type="submit" value="Get">
+				</form>
+			</div>
+			<div>
+				<h4>Latest reviewed</h4>
+				<ul>
+					<% @latest_reviews.each do |review| %>
+					<li>
+						<p>
+							<a><%= link_to review.stall.name, cafeterium_stall_path(review.stall.cafeterium, review.stall) %></a>
+						</p>
+						<span><%= review.published_at %></span>
+					</li>
+					<% end %>
+					
+				</ul>
+			</div>
+			<div class="connect">
+				<h4>FOLLOW US:</h4>
+				<a href="https://www.facebook.com/PersieG4ever" class="facebook">Facebook</a> <a href="https://twitter.com/ibuproFen18" class="twitter">Twitter</a> <a href="https://www.youtube.com/watch?v=B78hpMTQQqU" class="google">Google+</a>
+			</div>
+		</div>
+		<div>
+			<p>
+				Ateneo Food Review &#169; 2014 | All Rights Reserved
+			</p>
+		</div>
+	</div>
 </body>
 </html>

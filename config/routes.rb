@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'pages#index'
-
+	get '/about' => 'pages#about'
   resources :cafeteria do
   	resources :stalls do
   		resources :foods

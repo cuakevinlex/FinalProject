@@ -1,45 +1,40 @@
-<html>
-<%= link_to 'List of cafeteria', cafeteria_path %>
-<h1><%= @stall.name %> - Rating: <%= @average %></h1>
-<p><%= @stall.description %> <p>
-
-
-<br /><br />
+<h1 class = "resto"><%= @stall.name %> - Rating: <%= @average %></h1>
+		<p class = "resto"> - <%= @stall.description %> <p>
+		
 
 		<div class = "photos">
 		<% @foods.each do |food| %>
 		<div>
 		<% if food.photo == "" %>
-		<img src = "http://www.wwubap.org/wp-content/uploads/2012/03/no-available-image.png" />
+		<img src = "/assets/no-available-image.png" />
 		<% else %>
 		<img src = "<%= food.photo %>" />
 		<% end %>
-		<h4><%= food.name %> - <%= food.price %> </h4>
+		<h4><%= food.name %> - Php <%= food.price %> </h4>
 		</div>
 		<% end %>
 		</div>
-
-<br /><br />
+	<div class = "btn">
+	<%= link_to 'Add Food', new_cafeterium_stall_food_path(@cafeterium, @stall, Food.new) %>
+	</div>
+	<br />
 		<% @reviews.each do |review| %>
 		<div class = "comment">
 			<% if review.user == "" %>
-			<h2>Anonymous</h2>
+			<h2>Anonymous - <%=review.published_at %> - <%= review.rating %></h2>
 			<% else %>
-			<h2><%= review.user %></h2>
+			<h2><%= review.user %> - <%=review.published_at %> - <%= review.rating %></h2>
 			<% end %>
-			<%= review.rating %>
-			<br />
-			<%= review.comment %>
-			<br />
+			
+			<p><%= review.comment %></p>
+			<br /><br />
 			<%= link_to "Edit", edit_cafeterium_stall_review_path(@cafeterium, @stall, review) %>
 			<%=link_to "Delete", cafeterium_stall_review_path(@cafeterium, @stall, review), :method => :delete, :class => "delete", :confirm => "Are you sure ?"%>
 		</div>
 		<br />
 		<% end %>
 		
-		<br /><br />
-		
-	<%= link_to 'Add food', new_cafeterium_stall_food_path(@cafeterium, @stall, Food.new) %>	
+	<div class = "btn1">
 	<%= link_to 'Create New Review', new_cafeterium_stall_review_path(@cafeterium, @stall, Review.new) %>
-
-</html>
+	</div>
+	

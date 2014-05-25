@@ -1,7 +1,33 @@
-<html>
-<h1><%= @cafeterium.name %></h1>
-<p><%= debug @cafeterium %> <p>
-<%= link_to 'Show all cafeteria', cafeteria_path %>
+
+<div class = "review">
 <br />
-<%= link_to 'Show all stalls of ' + @cafeterium.name , cafeterium_stalls_path(@cafeterium) %>
-</html>
+
+<h1><%= @cafeterium.name %></h1>
+<% if @stalls.last == nil %>
+	<div class = "table">
+	<h2>No stalls yet</h2>
+	</div>
+<% else %>
+	<div class = "table">
+	<table class = "flat-table flat-table-1">
+		<thead>
+			<tr>
+				<td>Name</td>
+				<td>Description</td>
+			</tr>
+		</thead>
+		<tbody>
+			<% @stalls.each do |stall| %>
+			<tr>
+				<td><%= link_to stall.name, cafeterium_stall_path(@cafeterium, stall) %></td>
+				<td id = "tdlittle"><%= stall.description %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+	</div>
+
+<% end %>
+<br /><br />
+</div>
+

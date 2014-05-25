@@ -1,0 +1,31 @@
+<div class ="review">
+<div class = "head">
+<h1><%= @stall.name %>'s foods</h1>
+</div>
+<div class = "table">
+<table class = "flat-table flat-table-1">
+	<thead>
+		<tr>
+			<td>Names</td>
+			<td>Prices</td>
+			<td>Photos</td>
+			<td>Edit</td>
+			<td>Delete</td>
+		</tr>
+	</thead>
+	<tbody>
+		<% @foods.each do |food| %>
+		<tr>
+			<td><%= link_to food.name, cafeterium_stall_food_path(@cafeterium, @stall, food) %></td>
+			<td><%= food.price %></td>
+			<td id = "tdlittle"><%= food.photo %></td>
+			<td><%= link_to "Edit", edit_cafeterium_stall_food_path(@cafeterium, @stall, food) %></td>
+			<td><%=link_to "Delete", cafeterium_stall_food_path(@cafeterium, @stall, food), :method => :delete, :class => "delete", :confirm => "Are you sure ?"%></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+</div>
+		<%= link_to 'Create New Food', new_cafeterium_stall_food_path %>
+		<br /> <br /><br />
+		</div>

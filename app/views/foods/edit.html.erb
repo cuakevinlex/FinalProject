@@ -1,7 +1,7 @@
+
+
 <div class = "review">
-	<div class ="head">
-	<h1>New food - <%= @stall.name %>
-	</div>
+	<h1>Edit food - <%= @food.name %></h1>
 <%= simple_form_for ([@cafeterium, @stall, @food]) do |f| %>
 	<h3>*Name</h3>
 	  <%= f.input :name,:maxlength =>30 ,:label => false %>
@@ -13,6 +13,6 @@
 	  <%= f.input :photo ,:label => false %>
 	  <br />
 	  <%= f.button :submit %>
+
 <% end %>
-<br />
 </div>

@@ -7,11 +7,14 @@ def create
 	redirect_to :action => :index
   end
   def new
+  	@cafeteria = Cafeterium.all
 	@cafeterium = Cafeterium.new
+	@latest_reviews = Review.last(3) 
   end
 
   def index
 	@cafeteria = Cafeterium.all
+	@latest_reviews = Review.last(3) 
   end
 
   def destroy
@@ -21,7 +24,9 @@ def create
   end
 
   def edit
+	@cafeteria = Cafeterium.all
 	@cafeterium = Cafeterium.find(params[:id])
+	@latest_reviews = Review.last(3) 
   end
 
 	def update
@@ -33,6 +38,9 @@ def create
 	end
 
   def show
+  	@cafeteria = Cafeterium.all
 	@cafeterium = Cafeterium.find(params[:id])
+	@stalls = @cafeterium.stalls.all
+	@latest_reviews = Review.last(3) 
   end
 end

@@ -1,11 +1,17 @@
-<html>
-<head><title>Edit cafeterium</title></head>
-<h1>Edit cafeterium</h1>
-<body>
-<%= simple_form_for @cafeterium do |f| %>
-  <%= f.input :name %>
-  <%= f.input :capacity %>
-  <%= f.button :submit %>
-<% end %>
-</body>
-</html>
+
+<div class = "review">
+	<div class = "head">
+		<h1>Edit cafeterium</h1>
+	</div>
+	<%= simple_form_for @cafeterium do |f| %>
+	<h3>*Name</h3>
+	<%= f.input :name,:maxlength =>25, :label => false  %>
+	<br />
+	<h3>*Capacity</h3>
+	<%= f.input :capacity, :label => false %>
+	<br />
+	<%= f.button :submit %>
+	<% end %>
+	<br />
+</div>
+

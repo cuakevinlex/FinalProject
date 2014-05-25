@@ -1,11 +1,16 @@
-<html>
-<head><title>Create Stall</title></head>
-<h1>New Stall</h1>
-<body>
+<div class = "review">
+	<div class = "head">
+<h1>New Stall <%= @cafeterium.name %></h1>
+</div>
 <%= simple_form_for ([@cafeterium, @stall]) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
+	<h3>*Name</h3>
+  <%= f.input :name,:maxlength =>30, :label => false  %>
+  <br />
+  <h3>*Description</h3>
+
+  <%= f.input :description, :label => false %>
+    <br />
   <%= f.button :submit %>
 <% end %>
-</body>
-</html>
+<br />
+</div>
