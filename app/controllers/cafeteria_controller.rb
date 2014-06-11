@@ -17,7 +17,6 @@ def create
 
   def index
 	@cafeteria = Cafeterium.all
-	@cafeteria.sort!
 	@latest_reviews = Review.last(3) 
   end
 
@@ -48,6 +47,7 @@ def create
   	@cafeteria = Cafeterium.all
 	@cafeterium = Cafeterium.find(params[:id])
 	@stalls = @cafeterium.stalls.all
+	@stalls.sort!
 	@latest_reviews = Review.last(3) 
   end
 end
