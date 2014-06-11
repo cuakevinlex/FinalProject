@@ -46,8 +46,7 @@ def create
   def show
   	@cafeteria = Cafeterium.all
 	@cafeterium = Cafeterium.find(params[:id])
-	@stalls = @cafeterium.stalls.all
-	@stalls.sort! { |x,y| x.name <=> y.name } 
+	@stalls = @cafeterium.stalls.all.sort! { |x,y| x.name <=> y.name } 
 	@latest_reviews = Review.last(3) 
   end
 end
