@@ -7,6 +7,7 @@
 			<div>
 				<div>
 					<span><h3>Random  Stall</h3>
+					<% if @stall[0].name != nil %>
 					<p>
 						<%= @stall[0].name %> in <%= @stall[0].cafeterium.name %>
 					</p>
@@ -14,6 +15,7 @@
 						 - <%= @stall[0].description %>
 					</p>
 					<%= link_to "Give a review!", new_cafeterium_stall_review_path(@stall[0].cafeterium, @stall[0], Review.new) %>
+					<% end %>
 				</div>
 			</div>
 		</div>

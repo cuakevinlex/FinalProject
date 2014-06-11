@@ -83,3 +83,4 @@ production:
   database: ateneofoodreview_production
   username: ateneofoodreview
   password: <%= ENV['ateneofoodreview_DATABASE_PASSWORD'] %>
+  
