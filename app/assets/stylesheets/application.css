@@ -250,7 +250,7 @@ p a:hover {
 }
 /*------------------------- Header ------------------------*/
 .header {
-	background:url(/assets/bg-header.png) repeat-x;
+	background:asset-data-url('bg-header.png') repeat-x;
 	height:168px;
 	margin:0 0 41px;
 }
