@@ -101,7 +101,7 @@ div.comment h2,div.comment p
 color:black;
 }
  div.btn a{
-	background:url(/assets/interface.png) no-repeat -10px -855px;
+	background:<%= asset_path('interface.png') %> no-repeat -10px -855px;
 	color:#fff;
 	display:block;
 	float:none;
@@ -230,7 +230,7 @@ top: -15px;
 
 /*------------------------- Layout styles ------------------------*/
 body {
-	background:url(/assets/bg-body.jpg);
+	background:<%= asset_path('bg-body.jpg') %>;
 	margin:0;
 	font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
 }
