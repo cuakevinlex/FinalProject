@@ -17,6 +17,7 @@ def create
 
   def index
 	@cafeteria = Cafeterium.all
+	@cafeteria.sort!
 	@latest_reviews = Review.last(3) 
   end
 
