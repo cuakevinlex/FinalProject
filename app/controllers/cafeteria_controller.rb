@@ -46,7 +46,7 @@ def create
   def show
   	@cafeteria = Cafeterium.all
 	@cafeterium = Cafeterium.find(params[:id])
-	@stalls = @cafeterium.stalls.all.sorted_by &:name
+	@stalls = @cafeterium.stalls.all.order(:name)
 	@latest_reviews = Review.last(3) 
   end
 end
