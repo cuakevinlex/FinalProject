@@ -7,14 +7,17 @@
 			<div>
 				<div>
 					<span><h3>Random  Stall</h3>
-					<% if @stall.count == 0 %>
-					<p>
-						<%= @stall[0].name %> in <%= @stall[0].cafeterium.name %>
-					</p>
-					<p>
-						 - <%= @stall[0].description %>
-					</p>
-					<%= link_to "Give a review!", new_cafeterium_stall_review_path(@stall[0].cafeterium, @stall[0], Review.new) %>
+					<% if @cefeteria.count != 0 %>
+						<% if @stall.count == 0 %>
+					
+						<p>
+							<%= @stall[0].name %> in <%= @stall[0].cafeterium.name %>
+						</p>
+						<p>
+							 - <%= @stall[0].description %>
+						</p>
+						<%= link_to "Give a review!", new_cafeterium_stall_review_path(@stall[0].cafeterium, @stall[0], Review.new) %>
+						<% end %>
 					<% end %>
 				</div>
 			</div>
