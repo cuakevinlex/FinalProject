@@ -1,7 +1,6 @@
 class PagesController < ApplicationController
   def index
   	@cafeteria = Cafeterium.all
-  	if @cafeteria.count != 0
 		@stalls = Stall.last(3)
 		@latest_reviews = Review.last(3) 
 		@stall = Stall.all.sample(1)
@@ -15,7 +14,7 @@ class PagesController < ApplicationController
 					@count +=1
 				end
 			end
-	end
+	
 	
   end 
   def about
