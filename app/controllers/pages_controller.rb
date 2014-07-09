@@ -19,7 +19,7 @@ class PagesController < ApplicationController
   end 
   def about
   	@cafeteria = Cafeterium.all
-  	@latest_reviews = Review.last(3)
+  	@latest_reviews = Review.all
   	@about = true
   end
 end
